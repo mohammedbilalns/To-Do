@@ -1,0 +1,38 @@
+
+.inputContainer{
+	display: flex;
+	margin-top: 50px;
+	align-items: center;
+	justify-content: center;
+	box-shadow:  6px 6px 6px rgba(0, 0, 0, 0.15 ) ;
+	margin: 100px;
+}
+
+.inputBox{
+	border: none;
+	background-color: #3F7D58;
+	height: 30px;
+	width: 100%;
+	margin: 30px;
+	border-radius: 6px;
+	color: #EFEFEF;
+	padding: 8px;
+
+
+}
+.inputBox:focus{
+	border: none;
+	outline: none;
+	
+
+}
+.addButton{
+	border: none;
+	background-color: #3F7D58;
+	color: #EFEFEF;
+	margin: 30px;
+	width:70px ;
+	height: 30px;
+	border-radius: 6px;
+	cursor: pointer;
+}

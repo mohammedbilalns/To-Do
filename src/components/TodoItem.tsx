@@ -1,26 +1,25 @@
 import styles from "./todoitem.module.css";
+import { TodoItemType } from "./Todo";
 
-export default function TodoItem({
-  item,
-  todos,
-  setTodos,
-}: {
-  item: string;
-  todos: string[];
-  setTodos: React.Dispatch<React.SetStateAction<string[]>>;
-}) {
-  function handleDelete(item: string) {
+type TodoItemProps = {
+  item: TodoItemType;
+  todos: TodoItemType[];
+  setTodos: React.Dispatch<React.SetStateAction<TodoItemType[]>>;
+};
+
+export default function TodoItem({ item, todos, setTodos }: TodoItemProps) {
+  function handleDelete(name: string) {
     const authenticate = confirm("Are you sure you want to delete this item");
     if (authenticate) {
-      setTodos(todos.filter((todo) => todo !== item));
+      setTodos(todos.filter((todo) => todo.name !== name));
     }
   }
   return (
     <>
       <div className={styles.item}>
-        <div className={styles.itemName}>{item}</div>
+        <div className={styles.itemName}>{item.name}</div>
         <button
-          onClick={() => handleDelete(item)}
+          onClick={() => handleDelete(item.name)}
           className={styles.deleteButton}
         >
           X

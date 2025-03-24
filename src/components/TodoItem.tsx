@@ -14,10 +14,20 @@ export default function TodoItem({ item, todos, setTodos }: TodoItemProps) {
       setTodos(todos.filter((todo) => todo.name !== name));
     }
   }
+  function handleDone(name: string) {
+    setTodos(
+      todos.map((todo) =>
+        todo.name == name ? { ...todo, done: !todo.done } : todo,
+      ),
+    );
+  }
+  const itemClass = item.done ? styles.completed : ""
   return (
     <>
       <div className={styles.item}>
-        <div className={styles.itemName}>{item.name}</div>
+        <div className={styles.itemName}>
+          <span className={itemClass} onClick={() => handleDone(item.name)}>{item.name}</span>
+        </div>
         <button
           onClick={() => handleDelete(item.name)}
           className={styles.deleteButton}

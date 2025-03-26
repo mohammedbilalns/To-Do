@@ -23,7 +23,11 @@ export default function Form({ todos, setTodos }: FormProps) {
       alert("This item already exists");
       return;
     }
-    setTodos([...todos, { ...todo, name: todo.name.trim() }]);
+    if (todo.name.startsWith(".") || todo.name.startsWith(",")) {
+      alert("Todo item cannot start with '.' or ','.'");
+      return;
+    }
+    setTodos([...todos, { ...todo, name: todo.name.trim().toLowerCase() }]);
     setTodo({ name: "", done: false });
   }
   return (
